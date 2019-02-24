@@ -1,44 +1,47 @@
 <template>
   <router-link
     class="event-link"
-    :to="{ name: 'event-show', params: { id: '1' } }"
+    :to="{ name: 'event-show', params: { id: event.id } }"
   >
     <!-- wrap in div to contain multiple root elements -->
     <div class="event-card -shadow">
       <span class="eyebrow">@{{ event.time }} on {{ event.date }}</span>
       <h4 class="title">{{ event.title }}</h4>
-      <BaseIcon name="users" />
-      <span>{{ event.attendees.length }} attending</span>
+      <BaseIcon name="users">{{ event.attendees.length }} attending</BaseIcon>
+      <!-- <span>{{ event.attendees.length }} attending</span> -->
     </div>
   </router-link>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      event: {
-        id: 1,
-        title: "Beach Cleanup",
-        date: "Wed Aug 19, 2019",
-        time: "6:00 a.m.",
-        attendees: [
-          {
-            id: 123,
-            name: "Jess McGee"
-          },
-          {
-            id: 456,
-            name: "Meghan Markle"
-          },
-          {
-            id: 789,
-            name: "Tamitha Lebroux"
-          }
-        ]
-      }
-    };
+  props: {
+    event: Object
   }
+  // data() {
+  //   return {
+  //     event: {
+  //       id: 1,
+  //       title: "Beach Cleanup",
+  //       date: "Wed Aug 19, 2019",
+  //       time: "6:00 a.m.",
+  //       attendees: [
+  //         {
+  //           id: 123,
+  //           name: "Jess McGee"
+  //         },
+  //         {
+  //           id: 456,
+  //           name: "Meghan Markle"
+  //         },
+  //         {
+  //           id: 789,
+  //           name: "Tamitha Lebroux"
+  //         }
+  //       ]
+  //     }
+  //   };
+  // }
 };
 </script>
 
